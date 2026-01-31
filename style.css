@@ -25,22 +25,23 @@
 
 .container {
     display: grid;
-    height: 100vh;
+    min-height: 100vh;
     grid-template-columns: 2fr 8fr;
-    grid-template-rows: 2fr 7fr;
+    grid-template-rows: auto auto;
     grid-template-areas:
         "sidebar header"
         "sidebar main";
 }
 
 .container>div {
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 .sidebar {
     grid-area: sidebar;
     display: grid;
-    grid-template-rows: 1fr 4fr 3fr 5fr;
+    align-content: start;
+    grid-template-rows: auto auto auto ;
     grid-template-areas:
         "header"
         "nav"
@@ -50,7 +51,6 @@
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    color: brown;
     font-family: 'sofa_sansblack', Arial, Helvetica, sans-serif;
     background-color: rgb(77, 178, 240);
 }
@@ -114,8 +114,10 @@ li {
 .header {
     grid-area: header;
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto auto;
     padding: 15px 30px;
+    min-height: 25%;
+    max-height: 30%;
 
     &>.header-upper {
         grid-row: 1 / 2;
@@ -126,7 +128,7 @@ li {
     }
 
     /* &>* { */
-        /* border: 1px solid red; */
+    /* border: 1px solid red; */
     /* } */
 }
 
@@ -150,11 +152,11 @@ li {
         border-radius: 15px;
         background-color: rgb(221, 221, 221);
         border: none;
-    
+
         &:hover {
             border: 2px solid red;
         }
-    
+
     }
 }
 
@@ -194,6 +196,7 @@ li {
     & .hi {
         font-size: 1em;
     }
+
     & .name {
         font-size: 1.7em;
     }
@@ -213,7 +216,7 @@ li {
         font-size: 1.5em;
         font-family: inherit;
         padding: 0.3em 1em;
-    
+
         &:hover {
             border: 2px solid red;
             box-shadow: 2px 2px 2px black;
@@ -225,4 +228,152 @@ li {
 
 .main {
     grid-area: main;
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: 4fr 2fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "project announcement"
+        "project trending";
+    padding: 20px 20px;
+    background-color: rgb(196, 196, 196);
+    gap: 20px;
+}
+
+.main .projects {
+    grid-area: project;
+    display: grid;
+
+    & .project-header {
+        font-size: 1.5em;
+        font-family: "sofa_sansblack";
+        margin-bottom: 10px;
+    }
+
+    & .project-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+        gap: 20px;
+
+        & .card {
+            height: 10em;
+            border: 1px solid red;
+            border-radius: 15px;
+        }
+    }
+}
+
+.project-container .card {
+    font-family: "sofa_sansblack";
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    background-color: white;
+    box-shadow: 5px 5px 0 gold;
+
+    & .project-name {
+        grid-row: 1 / 2;
+    }
+
+    & .project-description {
+        grid-row: 2 / 5;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 0;
+        overflow: auto;
+        min-height: 0;
+    }
+
+    & .icons {
+        grid-row: 5 / 6;
+        justify-self: end;
+        align-self: end;
+
+        & a img:hover {
+            transform: rotate(15deg) scale(115%);
+        }
+    }
+}
+
+.main .announcement {
+    grid-area: announcement;
+    display: flex;
+    flex-direction: column;
+
+    & .announcement-header p {
+        font-family: "sofa_sansblack";
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    & .card {
+        border: 1px solid red;
+        border-radius: 15px;
+        background-color: white;
+        min-height: 20em;
+        max-height: 25em;
+        padding: 10px;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+
+        & .announcement-title {
+            padding-top: 10px;
+            font-family: "sofa_sansblack";
+        }
+
+        & .announcement-description {
+            overflow: auto;
+        }
+    }
+}
+
+
+.main .trending {
+    grid-area: trending;
+    display: flex;
+    flex-direction: column;
+
+    & .trending-header p {
+        font-family: "sofa_sansblack";
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    & .card {
+        border: 1px solid red;
+        border-radius: 15px;
+        min-height: 20em;
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-auto-flow: row;
+        min-height: 20em;
+        max-height: 25em;
+        overflow: auto;
+    }
+}
+
+.account {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    padding: 10px 0px;
+
+    img {
+        grid-area: 1 / 1 / 3 / 2;
+        border-radius: 100%;
+        height: 50px;
+    }
+
+    & .account-name {
+        grid-area: 1 / 2 / 2 / 3;
+        font-family: "sofa_sansblack";
+    }
+
+    & .account-description {
+        grid-area: 2 / 2 / 3 / 3;
+        min-height: 0;
+        overflow: auto;
+    }
 }
