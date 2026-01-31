@@ -326,6 +326,7 @@ li {
     grid-area: trending;
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
 
     & .trending-header p {
         font-family: "sofa_sansblack";
