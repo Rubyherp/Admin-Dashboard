@@ -1,0 +1,33 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 2fr 7fr;
+    grid-template-areas: 
+    "sidebar header"
+    "sidebar main";
+}
+
+.container > div {
+    border: 2px solid red;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+}
