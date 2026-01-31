@@ -6,6 +6,25 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'isidora';
+    src: url('../../../Fonts/IsidoraSoft/isidora_softlight.woff2') format('woff2'),
+        url('../../../Fonts/IsidoraSoft/isidora_softlight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'sofasans';
+    src: url('../../../Fonts/SofaSans/sofa_sansblack.woff2') format('woff2'),
+        url('../../../Fonts/SofaSans/sofa_sansblack.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 .container {
     display: grid;
     height: 100vh;
@@ -31,9 +50,6 @@
     gap: 20px;
     padding-left: 20px;
 
-    & > * {
-        /* border: 1px solid red; */
-    }
 }
 
 .sidebar-title {
