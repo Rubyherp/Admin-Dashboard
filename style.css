@@ -22,7 +22,6 @@
     font-display: swap;
 }
 
-
 .container {
     display: grid;
     min-height: 100vh;
@@ -46,7 +45,6 @@
         "header"
         "nav"
         "misc";
-
     gap: 20px;
     padding-top: 20px;
     padding-left: 20px;
@@ -76,7 +74,6 @@
         margin-left: 10px;
         align-items: center;
         font-size: 1.3em;
-
     }
 }
 
@@ -156,7 +153,6 @@ li {
         &:hover {
             border: 2px solid red;
         }
-
     }
 }
 
@@ -325,7 +321,6 @@ li {
         }
     }
 }
-
 
 .main .trending {
     grid-area: trending;
