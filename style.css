@@ -183,6 +183,7 @@ li {
     gap: 20px;
     place-items: center;
     font-family: "sofa_sansblack";
+    flex-shrink: 0;
 
     & img {
         width: 70px;
